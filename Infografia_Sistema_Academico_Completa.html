@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infografía Completa - Sistema Académico</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+    font-family: 'Segoe UI', sans-serif;
+    margin:0;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color:white;
+}
+
+header{
+    text-align:center;
+    padding:40px 20px;
+    background: rgba(0,0,0,0.3);
+}
+
+.section{
+    padding:40px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    color:#333;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+h1,h2{
+    text-align:center;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+}
+
+.entity-box{
+    background:#f4f6f9;
+    padding:15px;
+    border-radius:10px;
+}
+
+canvas{
+    max-width:600px;
+    margin:auto;
+    display:block;
+}
+
+.footer{
+    text-align:center;
+    padding:20px;
+    background: rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Modelado de un Sistema Académico</h1>
+<p>Universidad Andina del Cusco | Ingeniería de Sistemas | 2026-I</p>
+</header>
+
+<div class="section">
+
+<div class="card">
+<h2>🎯 Objetivo</h2>
+<p>
+Desarrollar el modelado de una base de datos para gestionar la información académica
+de una universidad, asegurando integridad, organización y análisis eficiente mediante
+Microsoft Excel y Power Pivot.
+</p>
+</div>
+
+<div class="card">
+<h2>📚 Entidades del Sistema</h2>
+<div class="grid">
+    <div class="entity-box">
+        <h3>👨‍🎓 Alumnos</h3>
+        <p>Contiene datos personales, código universitario, carrera y estado académico.</p>
+    </div>
+    <div class="entity-box">
+        <h3>👨‍🏫 Docentes</h3>
+        <p>Información profesional, especialidad y asignación de cursos.</p>
+    </div>
+    <div class="entity-box">
+        <h3>📖 Asignaturas</h3>
+        <p>Detalle de cursos, créditos, horas académicas y plan curricular.</p>
+    </div>
+    <div class="entity-box">
+        <h3>📅 Carga Académica</h3>
+        <p>Relaciona docente, asignatura, semestre y sección.</p>
+    </div>
+    <div class="entity-box">
+        <h3>📝 Notas</h3>
+        <p>Registro de evaluaciones parciales, finales y condición del estudiante.</p>
+    </div>
+</div>
+</div>
+
+<div class="card">
+<h2>📊 Representación del Modelo</h2>
+<p>
+El modelo establece relaciones entre las entidades principales mediante claves primarias
+y foráneas, permitiendo consultas y análisis del rendimiento académico.
+</p>
+<canvas id="modeloChart"></canvas>
+</div>
+
+<div class="card">
+<h2>📈 Análisis de Rendimiento (Ejemplo)</h2>
+<p>
+A través de Power Pivot se pueden obtener promedios generales, comparación de notas
+por evaluación y análisis del desempeño estudiantil.
+</p>
+<canvas id="notasChart"></canvas>
+</div>
+
+<div class="card">
+<h2>✅ Conclusiones</h2>
+<ul>
+<li>Se estructuró correctamente la información académica.</li>
+<li>Se garantizó integridad y relación entre entidades.</li>
+<li>El modelo permite análisis dinámico del rendimiento.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>💡 Sugerencias</h2>
+<ul>
+<li>Agregar entidades como Matrícula y Periodo Académico.</li>
+<li>Implementar el modelo en un SGBD como MySQL o PostgreSQL.</li>
+<li>Automatizar reportes mediante dashboards interactivos.</li>
+</ul>
+</div>
+
+</div>
+
+<div class="footer">
+Equipo: Los Mohamad All Yantal | Curso: Modelado de Base de Datos
+</div>
+
+<script>
+
+new Chart(document.getElementById('modeloChart'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Alumnos','Docentes','Asignaturas','Carga Académica','Notas'],
+        datasets: [{
+            data: [20,20,20,20,20]
+        }]
+    }
+});
+
+new Chart(document.getElementById('notasChart'), {
+    type: 'bar',
+    data: {
+        labels: ['Parcial 1','Parcial 2','Final'],
+        datasets: [{
+            label: 'Promedio General',
+            data: [14,16,15]
+        }]
+    }
+});
+
+</script>
+
+</body>
+</html>
